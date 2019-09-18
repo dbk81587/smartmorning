@@ -5,7 +5,8 @@ require('dotenv').config();
 module.exports = withCss(
   withSass({
     publicRuntimeConfig: {
-      apiKey: process.env.IP_GEOLOCATION_API_KEY,
+      geoLocationApiKey: process.env.IP_GEOLOCATION_API_KEY,
+      weatherApiKey: process.env.OPEN_WEATHER_API_KEY,
     },
   }),
 );
