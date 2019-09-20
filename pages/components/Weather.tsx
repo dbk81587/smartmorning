@@ -12,20 +12,23 @@ const Weather = () => {
     GeolocationService()
       .then(e => setLocation(e))
       .catch(error => console.log(error));
+  }, []);
+  const [{ weatherIcon, temp }, setWeather] = useState({
+    weatherIcon: '',
+    temp: 0,
   });
-  const [temp, setTemp] = useState();
   useEffect(() => {
     WeatherService(lon, lat)
-      .then(e => setTemp(Math.round(e.temp - 273.15)))
+      .then(e => setWeather(e))
       .catch(error => console.log(error));
-  });
+  }, [lon, lat]);
 
   return (
     <div className="weather-wrapper">
       <div className="weather-card madrid">
         <div className="weather-icon">
           <img
-            src="/static/weathericons/rainy-1.svg"
+            src={`/static/weathericons/${weatherIcon}`}
             height="100"
             width="100"
           />
