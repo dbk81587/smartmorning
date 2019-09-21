@@ -3,7 +3,6 @@ $color1: #b8b8b8;
 .weather-wrapper {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
 }
 
 .weather-card {
@@ -23,11 +22,21 @@ $color1: #b8b8b8;
     font-weight: 300;
     font-size: 80px;
     color: $color1;
-    bottom: 0;
     left: 35px;
     opacity: 0;
     transform: translateX(150px);
     animation: title-appear 500ms ease-out 500ms forwards;
+  }
+
+  #maxmin {
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 2000;
+    font-size: 25px;
+    color: $color1;
+    left: 40px;
+    bottom: 70px;
+    animation: title-appear 1.5s ease-out 500ms forwards;
   }
 
   p {
@@ -40,6 +49,31 @@ $color1: #b8b8b8;
     opacity: 0;
     left: 35px;
     animation: title-appear 1s ease-out 500ms forwards;
+  }
+}
+
+.weather-card-half {
+  @extend .weather-card;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 150px;
+  h1 {
+    position: static;
+    font-size: 30px;
+    left: 0;
+  }
+  .weather-icon {
+    position: static;
+    height: 20px;
+    margin-bottom: 20px;
+  }
+  .time {
+    margin-top: 20px;
+    font-family: 'Lato', sans-serif;
+    color: #ff9800;
   }
 }
 

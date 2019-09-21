@@ -8,9 +8,11 @@ const API_KEY = publicRuntimeConfig.weatherApiKey;
 interface WeatherProps {
   weatherIcon: string;
   temp: number;
+  temp_max: number;
+  temp_min: number;
 }
 
-const WeatherService = (lon, lat) => {
+const WeatherService = (lon: number, lat: number) => {
   const url = `${BASE_URL}lon=${lon}&lat=${lat}&appid=${API_KEY}`;
   return new Promise<WeatherProps>((resolve, reject) => {
     axios
@@ -48,13 +50,15 @@ const WeatherService = (lon, lat) => {
               case id >= 802 && id <= 804:
                 return '802-804.svg';
               default:
-                return '';
+                return 'White.jpg';
             }
           };
 
           resolve({
             weatherIcon: getWeatherIcon(weather[0].id),
             temp: Math.round(main.temp - 273.15),
+            temp_max: Math.round(main.temp_max - 273.15),
+            temp_min: Math.round(main.temp_min - 273.15),
           });
         } else {
           reject('Unable to retrieve current location');
