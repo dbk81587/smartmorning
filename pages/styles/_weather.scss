@@ -3,6 +3,9 @@ $color1: #b8b8b8;
 .weather-wrapper {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather-card {
@@ -10,11 +13,17 @@ $color1: #b8b8b8;
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  display: flex;
   width: 270px;
   height: 270px;
   background-color: white;
   box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
   animation: appear 500ms ease-out forwards;
+
+  .weather-icon {
+    position: absolute;
+    margin: 10px 5px 50px 150px;
+  }
 
   h1 {
     position: absolute;
@@ -54,33 +63,50 @@ $color1: #b8b8b8;
 
 .weather-card-half {
   @extend .weather-card;
+  float: right;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
   width: 80px;
   height: 150px;
   h1 {
     position: static;
     font-size: 30px;
-    left: 0;
   }
   .weather-icon {
     position: static;
-    height: 20px;
-    margin-bottom: 20px;
+    margin: 0 0 -20px 0;
   }
   .time {
-    margin-top: 20px;
+    margin-top: 30px;
     font-family: 'Lato', sans-serif;
-    color: #ff9800;
+    color: #804a4a;
   }
 }
 
-.weather-icon {
-  position: relative;
-  float: right;
-  margin: 10px 5px 0 0;
+@media (max-width: 560px) {
+  .weather-card-half {
+    border-radius: 10px;
+    width: 40px;
+    height: 80px;
+    margin-top: 0px;
+    h1 {
+      font-size: 15px;
+    }
+    .weather-icon {
+      margin: -10px 0 -25px 0;
+    }
+    .time {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.hours-data-map {
+  display: flex;
 }
 
 @keyframes appear {

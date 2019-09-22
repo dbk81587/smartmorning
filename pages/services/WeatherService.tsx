@@ -8,8 +8,7 @@ const API_KEY = publicRuntimeConfig.weatherApiKey;
 interface WeatherProps {
   weatherIcon: string;
   temp: number;
-  temp_max: number;
-  temp_min: number;
+  humidity: number;
 }
 
 const WeatherService = (lon: number, lat: number) => {
@@ -20,8 +19,8 @@ const WeatherService = (lon: number, lat: number) => {
       .then(res => {
         if (res && res.status === 200) {
           const { weather, main, sys } = res.data;
-          const sunrise = new Date(sys.sunrise).getHours();
-          const sunset = new Date(sys.sunset).getHours();
+          const sunrise = new Date(1569072048 * 1000).getHours();
+          const sunset = new Date(1569116294 * 1000).getHours();
           const currentHour = new Date().getHours();
           const getWeatherIcon = id => {
             switch (weather[0].id > 0) {
@@ -57,8 +56,7 @@ const WeatherService = (lon: number, lat: number) => {
           resolve({
             weatherIcon: getWeatherIcon(weather[0].id),
             temp: Math.round(main.temp - 273.15),
-            temp_max: Math.round(main.temp_max - 273.15),
-            temp_min: Math.round(main.temp_min - 273.15),
+            humidity: main.humidity,
           });
         } else {
           reject('Unable to retrieve current location');
