@@ -26,35 +26,37 @@ const Newsfeed = () => {
             key={i}
           >
             <CardActionArea style={{ height: 500 }}>
-              <CardMedia component="img" image={e[3]} height="220" />
-              <CardContent style={{ height: 250 }}>
-                <Typography
-                  color="textPrimary"
-                  style={{ lineHeight: '25px' }}
-                  gutterBottom={true}
-                  className="card-title"
-                >
-                  {e[0]}
-                </Typography>
-                <hr />
-                <Typography
-                  className="article-content-text"
-                  variant="body2"
-                  color="textSecondary"
-                >
-                  {e[1]}
-                </Typography>
-                <Typography
-                  style={{
-                    position: 'absolute',
-                    bottom: '10px',
-                    right: '20px',
-                    color: 'blueGrey',
-                  }}
-                >
-                  {e[4]}
-                </Typography>
-              </CardContent>
+              <a href={e[2]} target="_blank" style={{ textDecoration: 'none' }}>
+                <CardMedia component="img" image={e[3]} height="220" />
+                <CardContent style={{ height: 250 }}>
+                  <Typography
+                    color="textPrimary"
+                    style={{ lineHeight: '25px' }}
+                    gutterBottom={true}
+                    className="card-title"
+                  >
+                    {e[0]}
+                  </Typography>
+                  <hr />
+                  <Typography
+                    className="article-content-text"
+                    variant="body2"
+                    color="textSecondary"
+                  >
+                    {e[1]}
+                  </Typography>
+                  <Typography
+                    style={{
+                      position: 'absolute',
+                      bottom: '10px',
+                      right: '20px',
+                      color: 'blueGrey',
+                    }}
+                  >
+                    {e[4]}
+                  </Typography>
+                </CardContent>
+              </a>
             </CardActionArea>
           </Card>
         );
