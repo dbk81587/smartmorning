@@ -1,0 +1,136 @@
+$color1: #b8b8b8;
+
+.weather-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-card {
+  margin: 20px 5px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 270px;
+  height: 270px;
+  background-color: white;
+  box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1);
+  animation: appear 500ms ease-out forwards;
+
+  .weather-icon {
+    position: absolute;
+    margin: 10px 5px 50px 150px;
+  }
+
+  h1 {
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 80px;
+    color: $color1;
+    left: 35px;
+    opacity: 0;
+    transform: translateX(150px);
+    animation: title-appear 500ms ease-out 500ms forwards;
+  }
+
+  #maxmin {
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 2000;
+    font-size: 25px;
+    color: $color1;
+    left: 40px;
+    bottom: 70px;
+    animation: title-appear 1.5s ease-out 500ms forwards;
+  }
+
+  p {
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    color: lighten($color1, 10%);
+    bottom: 0;
+    opacity: 0;
+    left: 35px;
+    animation: title-appear 1s ease-out 500ms forwards;
+  }
+}
+
+.weather-card-half {
+  @extend .weather-card;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 80px;
+  height: 150px;
+  h1 {
+    position: static;
+    font-size: 30px;
+  }
+  .weather-icon {
+    position: static;
+    margin: 0 0 -20px 0;
+  }
+  .time {
+    margin-top: 30px;
+    font-family: 'Lato', sans-serif;
+    color: #804a4a;
+  }
+}
+
+@media (max-width: 560px) {
+  .weather-card-half {
+    border-radius: 10px;
+    width: 40px;
+    height: 80px;
+    margin-top: 0px;
+    h1 {
+      font-size: 15px;
+    }
+    .weather-icon {
+      margin: -10px 0 -25px 0;
+    }
+    .time {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.hours-data-map {
+  display: flex;
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes title-appear {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

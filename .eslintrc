@@ -1,0 +1,6 @@
+{
+  "extends": ["airbnb", "airbnb/hooks"],
+  "rules": {
+    "no-unused-vars": 0
+  }
+}
