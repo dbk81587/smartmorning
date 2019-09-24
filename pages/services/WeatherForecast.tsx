@@ -13,7 +13,7 @@ const WeatherForecast = (lon: number, lat: number) => {
   const url = `${BASE_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}`;
   return new Promise<ForecastProps>((resolve, reject) => {
     axios
-      .post(url)
+      .get(url)
       .then(res => {
         if (res && res.status === 200) {
           const resMap = res.data.list
