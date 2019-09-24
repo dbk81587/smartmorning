@@ -7,6 +7,7 @@ module.exports = withCss(
     publicRuntimeConfig: {
       geoLocationApiKey: process.env.IP_GEOLOCATION_API_KEY,
       weatherApiKey: process.env.OPEN_WEATHER_API_KEY,
+      newsfeedApiKey: process.env.NEWSFEED_API_KEY,
     },
   }),
 );

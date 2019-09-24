@@ -1,9 +1,10 @@
-import { Weather } from './components/index';
+import { Newsfeed, Weather } from './components/index';
 import './styles/style.scss';
 
 const Index = () => (
   <div>
     <Weather />
+    <Newsfeed />
   </div>
 );
 

@@ -1,0 +1,23 @@
+.article-content-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 380px) {
+  .article-content-text {
+    -webkit-line-clamp: 2;
+  }
+}
+
+.newsfeed-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.news-card {
+  margin: 20px 20px;
+}

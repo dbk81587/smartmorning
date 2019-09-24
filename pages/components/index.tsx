@@ -1,3 +1,4 @@
+import Newsfeed from './Newsfeed';
 import Weather from './Weather';
 
-export { Weather };
+export { Weather, Newsfeed };
