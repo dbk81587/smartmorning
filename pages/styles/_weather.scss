@@ -65,6 +65,7 @@ $color1: #b8b8b8;
   @extend .weather-card;
   float: right;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -89,7 +90,7 @@ $color1: #b8b8b8;
 @media (max-width: 560px) {
   .weather-card-half {
     border-radius: 10px;
-    width: 40px;
+    width: 38px;
     height: 80px;
     margin-top: 0px;
     h1 {
