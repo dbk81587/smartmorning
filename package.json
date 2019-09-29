@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "aws s3 sync ./.next s3://smartmorning-dbk81587 --profile=smartmorning-dbk81587"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dongbi Kim",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.4.2",
