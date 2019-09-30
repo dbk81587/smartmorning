@@ -5,11 +5,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Newsfeed = ({ newsfeedData }) => {
-  const [newsMap, setNewsMap] = useState<object>(
-    newsfeedData.slice(0, 9).map((e, i) => {
+  const [newsMap, setNewsMap] = useState<object>();
+  useEffect(() => {
+    const newsMapping = newsfeedData.map((e, i) => {
       const date: number = new Date(e.publishedAt).getTime();
       const hour: number = new Date(date).getHours();
       const min =
@@ -54,8 +55,9 @@ const Newsfeed = ({ newsfeedData }) => {
           </CardActionArea>
         </Card>
       );
-    }),
-  );
+    });
+    setNewsMap(newsMapping);
+  }, []);
   return (
     <Container>
       <div className="newsfeed-wrapper">{newsMap}</div>
