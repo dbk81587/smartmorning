@@ -1,6 +1,7 @@
 import axios from 'axios';
 import getConfig from 'next/config';
-import { CurrentWeather, Newsfeed } from './components';
+import CurrentWeather from './components/CurrentWeather';
+import Newsfeed from './components/Newsfeed';
 const { publicRuntimeConfig } = getConfig();
 const newsfeedURL =
   'https://newsapi.org/v2/top-headlines?country=ca&apiKey=' +
@@ -10,10 +11,10 @@ const geolocationURL =
   publicRuntimeConfig.geoLocationApiKey;
 import './styles/style.scss';
 
-const Index = ({ geoLocation, newsfeedData }) => (
+const Index = ({ geoData }) => (
   <div>
-    <CurrentWeather geoLocation={geoLocation} />
-    <Newsfeed newsfeedData={newsfeedData} />
+    <CurrentWeather lon={geoData.lon} lat={geoData.lat} city={geoData.city} />
+    <Newsfeed newsfeedData={geoData.articles} />
   </div>
 );
 
@@ -21,15 +22,15 @@ Index.getInitialProps = async ({ req }) => {
   const geoLocation = () => axios.get(geolocationURL);
   const newsfeed = () => axios.get(newsfeedURL);
   const [geoData, newsData] = await axios.all([geoLocation(), newsfeed()]);
-  const { longitude, latitude, city } = geoData.data;
-  const { articles } = newsData.data;
+  const { longitude, latitude, city } = await geoData.data;
+  const { articles } = await newsData.data;
   return {
-    geoLocation: {
+    geoData: {
       lon: longitude,
       lat: latitude,
       city: city,
+      articles: articles.slice(0, 9),
     },
-    newsfeedData: articles,
   };
 };
 

@@ -15,8 +15,7 @@ interface GeoLocation {
   city: string;
 }
 
-const HoursForecast = (geoLocation, sunrise, sunset) => {
-  const [{ lon, lat, city }, setLocation] = useState<GeoLocation>(geoLocation);
+const HoursForecast = ({ lon, lat, sunrise, sunset }) => {
   const url: string = `${BASE_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}`;
   const [resMap, setResList] = useState<object>();
   useEffect(() => {

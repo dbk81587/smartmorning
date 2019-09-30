@@ -8,12 +8,6 @@ import axios from 'axios';
 
 const currentWeatherURL = 'https://api.openweathermap.org/data/2.5/weather?';
 
-interface GeoLocation {
-  lon: number;
-  lat: number;
-  city: string;
-}
-
 interface WeatherData {
   weatherIcon: string;
   temp: number;
@@ -22,8 +16,7 @@ interface WeatherData {
   sunset: number;
 }
 
-const CurrentWeather = ({ geoLocation }) => {
-  const [{ lon, lat, city }, setLocation] = useState<GeoLocation>(geoLocation);
+const CurrentWeather = ({ lon, lat, city }) => {
   const [weatherData, setWeather] = useState<WeatherData>({
     weatherIcon: 'White.jpg',
     temp: null,
@@ -73,7 +66,6 @@ const CurrentWeather = ({ geoLocation }) => {
       </div>
       <div className="hours-data-map">
         <HoursForecast
-          geoLocation={geoLocation}
           sunrise={weatherData.sunrise}
           sunset={weatherData.sunset}
           lat={lat}
