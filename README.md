@@ -1,10 +1,10 @@
-# Pocketnote
+# Smartmorning
 
 Go **[here](https://smartmorning.now.sh)** for live demo.
 
 ... | ...
 --- | ---
-![pocketnote1](https://user-images.githubusercontent.com/40073162/56672075-c26a3500-6683-11e9-8f85-12651e19adfa.png) | ![pocketnote2](https://user-images.githubusercontent.com/40073162/56673563-7b317380-6686-11e9-8325-22700ad2e5cd.png)
+![pocketnote1](https://user-images.githubusercontent.com/40073162/66276440-5a359700-e850-11e9-9062-6176d02daee2.png)
 
 ---
 
