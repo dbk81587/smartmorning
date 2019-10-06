@@ -2,8 +2,8 @@
 
 Go **[here](https://smartmorning.now.sh)** for live demo.
 
-... | ...
---- | ---
+...
+---
 ![pocketnote1](https://user-images.githubusercontent.com/40073162/66276440-5a359700-e850-11e9-9062-6176d02daee2.png)
 
 ---
