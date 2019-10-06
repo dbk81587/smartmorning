@@ -12,6 +12,7 @@ Screenshot
 
 * [Node.js](https://nodejs.org/en/) - Javascript runtime
 * [Typescript](www.typescriptlang.org) - Static type-checking along with the latest ECMAScript features.
+* [API](https://en.wikipedia.org/wiki/Application_programming_interface) - An application programming interface
 * [React](https://reactjs.org/) - A javascript library for building user interfaces
 * [Next.js](https://nextjs.org) - A server-side rendering React framework
 * [Material-UI](https://material-ui.com) - React components for faster and easier web development
