@@ -1,7 +1,6 @@
 const GetWeatherIcon = (id, currentHour, sunrise, sunset): string => {
   const getSunrise: number = new Date(sunrise * 1000).getHours();
   const getSunset: number = new Date(sunset * 1000).getHours();
-  const getCurrentHour: number = new Date(currentHour).getHours();
   switch (id > 0) {
     case id >= 200 && id <= 232:
       return '200-232.svg';
@@ -17,15 +16,11 @@ const GetWeatherIcon = (id, currentHour, sunrise, sunset): string => {
       return '600-622.svg';
     case id >= 701 && id <= 781:
       return '701-781.png';
-    case id === 800 &&
-      getCurrentHour >= getSunrise &&
-      getCurrentHour < getSunset:
+    case id === 800 && currentHour >= getSunrise && currentHour < getSunset:
       return '800d.svg';
     case id === 800:
       return '800n.svg';
-    case id === 801 &&
-      getCurrentHour >= getSunrise &&
-      getCurrentHour < getSunset:
+    case id === 801 && currentHour >= getSunrise && currentHour < getSunset:
       return '801d.svg';
     case id === 801:
       return '801n.svg';
