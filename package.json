@@ -1,13 +1,12 @@
 {
   "name": "smartmorning",
   "version": "1.0.0",
-  "description": "",
+  "description": "Weather and news",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "deploy": "aws s3 sync ./.next s3://smartmorning-dbk81587 --profile=smartmorning-dbk81587"
+    "start": "next start"
   },
   "keywords": [],
   "author": "Dongbi Kim",
@@ -19,7 +18,9 @@
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.19.0",
     "dotenv": "^8.1.0",
+    "dotenv-load": "^2.0.0",
     "next": "^9.0.5",
+    "next-env": "^1.1.0",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@types/node": "^12.7.5",
     "@types/react": "^16.9.2",
+    "prettier": "^1.18.2",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",

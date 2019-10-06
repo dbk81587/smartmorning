@@ -1,13 +1,10 @@
 const withCss = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
-require('dotenv').config();
+const nextEnv = require('next-env');
+const dotenvLoad = require('dotenv-load');
 
-module.exports = withCss(
-  withSass({
-    publicRuntimeConfig: {
-      geoLocationApiKey: process.env.IP_GEOLOCATION_API_KEY,
-      weatherApiKey: process.env.OPEN_WEATHER_API_KEY,
-      newsfeedApiKey: process.env.NEWSFEED_API_KEY,
-    },
-  }),
-);
+dotenvLoad();
+
+const withNextEnv = nextEnv();
+
+module.exports = withNextEnv(withCss(withSass({})));
