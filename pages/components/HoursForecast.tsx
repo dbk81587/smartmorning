@@ -1,27 +1,14 @@
-import axios from 'axios';
-import getConfig from 'next/config';
 import { useEffect, useState } from 'react';
 import GetWeatherIcon from '../utils/GetWeatherIcon';
-import WeatherHours from './WeatherHours';
 
-const { publicRuntimeConfig } = getConfig();
-
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast?';
-const API_KEY = publicRuntimeConfig.weatherApiKey;
-
-interface GeoLocation {
-  lon: number;
-  lat: number;
-  city: string;
-}
-
-const HoursForecast = ({ lon, lat, sunrise, sunset }) => {
-  const url: string = `${BASE_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-  const [resMap, setResList] = useState<object>();
+const HoursForecast = ({ forecastData, sunrise, sunset }) => {
+  const [forecastList, setForecastList] = useState([]);
   useEffect(() => {
-    const getHourlyForecast = async () => {
-      const res = await axios.get(url);
-      const resList = res.data.list
+    setForecastList(forecastData);
+  });
+  return (
+    <div>
+      {forecastList
         .slice(0, 6)
         .reverse()
         .map((e, i) => {
@@ -29,7 +16,8 @@ const HoursForecast = ({ lon, lat, sunrise, sunset }) => {
           const currentHour: number = new Date(dt * 1000).getHours();
           const getAmPm = hours => {
             if (hours === 0) return 12 + ' am';
-            return hours >= 12 ? hours - 12 + ' pm' : hours + ' am';
+            if (hours === 12) return 12 + ' pm';
+            return hours > 12 ? hours - 12 + ' pm' : hours + ' am';
           };
           return (
             <div className="weather-card-half" key={i}>
@@ -47,16 +35,13 @@ const HoursForecast = ({ lon, lat, sunrise, sunset }) => {
                 />
               </div>
               <div>
-                <h1>{Math.round(main.temp - 273.15)}</h1>
+                <h1>{Math.round(main.temp - 273.15)}°</h1>
               </div>
             </div>
           );
-        });
-      setResList(resList);
-    };
-    getHourlyForecast();
-  }, []);
-  return <div>{resMap ? resMap : <WeatherHours />}</div>;
+        })}
+    </div>
+  );
 };
 
 export default HoursForecast;
