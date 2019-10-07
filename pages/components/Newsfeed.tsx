@@ -45,7 +45,7 @@ const Newsfeed = ({ newsfeedData }) => {
                     position: 'absolute',
                     bottom: '10px',
                     right: '20px',
-                    color: 'blueGrey',
+                    color: '#424242',
                   }}
                 >
                   {publishedTime}

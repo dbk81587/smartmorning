@@ -13,8 +13,18 @@ const currentWeatherURL = 'https://api.openweathermap.org/data/2.5/weather?';
 const forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?';
 import './styles/style.scss';
 
+interface GeoData {
+  lon: number;
+  lat: number;
+  city: string;
+}
+
 const Index = ({ newsData, apis }) => {
-  const [geoData, setGeoData] = useState({ lon: null, lat: null, city: '' });
+  const [geoData, setGeoData] = useState<GeoData>({
+    lon: null,
+    lat: null,
+    city: '',
+  });
   useEffect(() => {
     const getGeoData = async () => {
       const geoDat = await axios.get(apis.geoURL);
