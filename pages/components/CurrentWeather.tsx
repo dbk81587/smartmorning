@@ -1,13 +1,7 @@
 import InvertColors from '@material-ui/icons/InvertColors';
 import GetWeatherIcon from '../utils/GetWeatherIcon';
 import HoursForecast from './HoursForecast';
-
-interface WeatherData {
-  weatherIcon: string;
-  temp: number;
-  humidity: number;
-  forecast: object;
-}
+import WeatherHours from './WeatherHours';
 
 const CurrentWeather = ({
   city,
@@ -22,7 +16,7 @@ const CurrentWeather = ({
     <div className="weather-wrapper">
       <div
         className="weather-card"
-        style={{ visibility: temp === null ? 'hidden' : 'visible' }}
+        style={{ visibility: typeof temp === 'object' ? 'hidden' : 'visible' }}
       >
         <div className="weather-icon">
           <img

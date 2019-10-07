@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import GetWeatherIcon from '../utils/GetWeatherIcon';
+import WeatherHours from './WeatherHours';
 
 const HoursForecast = ({ forecastData, sunrise, sunset }) => {
   const [forecastList, setForecastList] = useState([]);
   useEffect(() => {
     setForecastList(forecastData);
   });
-  return (
-    <div>
-      {forecastList
+  const [rendered, setRendered] = useState();
+  useEffect(() => {
+    if (forecastList.length < 1) return;
+    setRendered(
+      forecastList
         .slice(0, 6)
         .reverse()
         .map((e, i) => {
@@ -39,9 +42,10 @@ const HoursForecast = ({ forecastData, sunrise, sunset }) => {
               </div>
             </div>
           );
-        })}
-    </div>
-  );
+        }),
+    );
+  }, [forecastList]);
+  return <div>{rendered ? rendered : <WeatherHours />}</div>;
 };
 
 export default HoursForecast;
